@@ -1,5 +1,5 @@
 import blankAvatar from "../images/blankAvatar.png"
-const AvatarDisplay =(ticket)=>{
+const AvatarDisplay = (ticket) => {
 
     return(
         <div className="avatar-container">

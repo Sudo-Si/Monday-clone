@@ -93,3 +93,8 @@ width: 100%;
    width: 100%;
   
 }
+.ticket-card .status-display{
+    display: flex;
+    justify-content: center;
+  
+}

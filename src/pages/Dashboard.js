@@ -6,7 +6,7 @@ const Dashboard =()=>{
             color:'red',
             title:'Create Monday Clone',
             owner:'Simon',
-            status: 'done',
+            status: 'working on',
             progress:40,
             priority: 5,
             description:'follow tut on how to code a crm ',
@@ -18,7 +18,7 @@ const Dashboard =()=>{
             color:'red',
             title:'Create Monday Create website for resume',
             owner:'Simon',
-            status: 'done',
+            status: 'working on',
             progress:15,
             priority: 4,
             description:'create personal website ',
@@ -34,6 +34,17 @@ const Dashboard =()=>{
             progress:15,
             priority: 4,
             description:'connect repo to site ',
+            avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
+            timestamp:'2022-08-16T15:58:00'
+        }, {
+            category:'Q3 2022',
+            color:'red',
+            title:'Rock Paper Scissors Game',
+            owner:'Simon',
+            status: 'stuck',
+            progress:15,
+            priority: 4,
+            description:'create personal website ',
             avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
             timestamp:'2022-08-16T15:58:00'
         }
@@ -60,9 +71,8 @@ const Dashboard =()=>{
                     color={filterdTicket.color}
                     ticket={filterdTicket}
                     />
-                    
                     ))
-                    }
+                }
 
                 </div>
              ))}

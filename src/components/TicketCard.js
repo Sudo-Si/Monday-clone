@@ -14,7 +14,7 @@ return (
                 {/* <Link to="./AvatarDisplay.js"> <AvatarDisplay/></Link><Link to="./StatusDisplay.js.js"> <StatusDisplay/></Link><Link to="./PriorityDisplay.js"> <PriorityDisplay/></Link><Link to="./ProgressDisplay.js"> <ProgressDisplay/></Link> */}
            <h3>{ticket.title}</h3>
             <AvatarDisplay ticket={ticket}/>
-            <StatusDisplay/>
+            <StatusDisplay status={ticket.status}/>
             <PriorityDisplay/>
             <ProgressDisplay/>
     </Link> 
