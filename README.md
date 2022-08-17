@@ -1,4 +1,5 @@
-Link https://www.youtube.com/watch?v=DDh2GoiCrCk&t=93s
+Link https://www.youtube.com/watch?v=DDh2GoiCrCk&t=93s 
+1h55m
 
 
 # Getting Started with Create React App

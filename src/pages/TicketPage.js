@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 const TicketPage =()=>{
 
     const [formData, setFormData] = useState({
@@ -11,10 +12,23 @@ const TicketPage =()=>{
     })
 
     const editMode= false;
+    const navigate = useNavigate();
 
-    const handleSubmit= ()=>{
-        console.log("Submitted")
-    };
+    const handleSubmit= async (e) => {
+        e.preventDefault();
+        
+        if (!editMode) {
+            const response = await axios.post(`http://localhost:8000/tickets`, {
+            formData
+            })
+            const success = response.status === 200
+            if (success){
+                navigate('/')
+            }
+            else console.log(e)
+        }
+        
+    }
 
     const handleChange= (e)=>{
             const value = e.target.value
@@ -81,8 +95,8 @@ return(
                             name="priority"
                             type="radio"
                             onChange={handleChange}
-                            valu= {1}
-                            checked={formData.priority === 1}
+                            value= {1}
+                            checked={formData.priority == 1}
                         /> 
                         <label for="priority-1">1</label>
                         <input 
@@ -90,8 +104,8 @@ return(
                             name="priority"
                             type="radio"
                             onChange={handleChange}
-                            valu= {2}
-                            checked={formData.priority === 2}
+                            value= {2}
+                            checked={formData.priority == 2}
                         /> 
                         <label for="priority-2">2</label>
                         <input 
@@ -99,8 +113,8 @@ return(
                             name="priority"
                             type="radio"
                             onChange={handleChange}
-                            valu= {3}
-                            checked={formData.priority === 3}
+                            value= {3}
+                            checked={formData.priority == 3}
                         /> 
                         <label for="priority-3">3</label>
                         <input 
@@ -108,8 +122,8 @@ return(
                             name="priority"
                             type="radio"
                             onChange={handleChange}
-                            valu= {4}
-                            checked={formData.priority === 4}
+                            value= {4}
+                            checked={formData.priority == 4}
                         /> 
                         <label for="priority-4">4</label>
                         <input 
@@ -117,8 +131,8 @@ return(
                             name="priority"
                             type="radio"
                             onChange={handleChange}
-                            valu= {5}
-                            checked={formData.priority === 5}
+                            value= {5}
+                            checked={formData.priority == 5}
                         /> 
                         <label for="priority-5">5</label>
                     </div>
@@ -173,7 +187,7 @@ return(
                     />   
                     <div className="img-preview">
                         {formData.avatar &&(
-                            <img src={formData.avatar} alt="image Preview"/>
+                            <img src={formData.avatar} alt=" Preview"/>
                         )}
                     </div>
                 </section>
