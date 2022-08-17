@@ -32,7 +32,7 @@ const Dashboard =()=>{
             owner:'Simon',
             status: 'done',
             progress:15,
-            priority: 4,
+            priority: 2,
             description:'connect repo to site ',
             avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
             timestamp:'2022-08-16T15:58:00'
@@ -42,8 +42,8 @@ const Dashboard =()=>{
             title:'Rock Paper Scissors Game',
             owner:'Simon',
             status: 'stuck',
-            progress:15,
-            priority: 4,
+            progress:60,
+            priority: 1,
             description:'create personal website ',
             avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
             timestamp:'2022-08-16T15:58:00'
