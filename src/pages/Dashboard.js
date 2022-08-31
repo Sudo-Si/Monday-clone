@@ -1,57 +1,37 @@
 
 import TicketCard from '../components/TicketCard'
 import axios from 'axios'
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 
 const Dashboard =()=>{
-    const tickets=[{
-            category:'Q2 2022',
-            color:'red',
-            title:'Create Monday Clone',
-            owner:'Simon',
-            status: 'working on',
-            progress:40,
-            priority: 5,
-            description:'follow tut on how to code a crm ',
-            avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
-            timestamp:'2022-08-16T15:53:00'
-        },
-    {
-            category:'Q3 2022',
-            color:'red',
-            title:'Create Monday Create website for resume',
-            owner:'Simon',
-            status: 'working on',
-            progress:15,
-            priority: 4,
-            description:'create personal website ',
-            avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
-            timestamp:'2022-08-16T15:58:00'
-        },
-    {
-            category:'Q3 2022',
-            color:'blue',
-            title:'Connect Github ',
-            owner:'Simon',
-            status: 'done',
-            progress:15,
-            priority: 2,
-            description:'connect repo to site ',
-            avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
-            timestamp:'2022-08-16T15:58:00'
-        }, {
-            category:'Q3 2022',
-            color:'red',
-            title:'Rock Paper Scissors Game',
-            owner:'Simon',
-            status: 'stuck',
-            progress:60,
-            priority: 1,
-            description:'create personal website ',
-            avatar:'https://www.linkedin.com/in/othusitse-dalgleish-maswabi/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BkUiBOyZ8QDGaA8TejaqMcQ%3D%3D',
-            timestamp:'2022-08-16T15:58:00'
-        }
-    ]
+     
+
+        const [tickets, setTickets] = useState(null)
+
+        useEffect(() => {
+            const fetchData = async () => {
+              const response = await axios.get(`http://localhost:8000/tickets`);
+            //   const newData = await response.json();
+              const dataObject = response.data.data;
+
+        const arrayOfKeys = Object.keys(dataObject)
+        const arrayOfData = Object.keys(dataObject).map((key)=> dataObject[key])
+        const formattedArray = []
+        arrayOfKeys.forEach((key, index) => {
+                    const formattedData = { ...arrayOfData[index]}
+                    formattedData['documentId'] = key
+                    formattedArray.push(formattedData)
+                })
+                setTickets(formattedArray)
+                //     // console.log('arrayOfKeys', arrayOfKeys)
+                //     // console.log(formattedArray)
+                //     // console.log('arrayOfData', arrayOfData)
+            };
+        //    calls multiple times?
+            fetchData();
+          },[]);
+
+       
     //catagory colours
     const colors = [
         'rgb(255,179,186)',
